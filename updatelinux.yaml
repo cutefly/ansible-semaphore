@@ -10,3 +10,7 @@
       apt:
         update_cache: yes
         upgrade: yes
+    - name: Update and upgrade yum packages
+      yum:
+        update_cache: yes
+        upgrade: yes
