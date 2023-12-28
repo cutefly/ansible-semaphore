@@ -1,3 +1,4 @@
+# https://sujitpatel.in/article/how-to-install-nginx-using-ansible-playbook/
 ---
 - hosts: web
   tasks:
