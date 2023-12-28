@@ -1,6 +1,6 @@
 ---
   
-- hosts: ubuntu
+- hosts: oracle
   vars:
     ansible_host_key_checking: false ##If you get an error about hosts not trusted
   become: true
