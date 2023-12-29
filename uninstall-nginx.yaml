@@ -11,4 +11,4 @@
       yum: name=nginx state=absent autoremove=yes
       when:
         - ansible_os_family == "RedHat"
-        - ansible_distribution == "CentOS"
+        - ansible_distribution == "OracleLinux"
