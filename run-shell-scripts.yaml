@@ -3,6 +3,18 @@
 - hosts: all
   become: yes
   tasks:
+    - name: install rsync for ubuntu
+      apt: 
+        name=rsync state=present
+      when:
+        - ansible_os_family == "Debian"
+        - ansible_distribution == "Ubuntu"
+    - name: install rsync for redhat
+      yum: 
+        name=rsync state=present
+      when:
+        - ansible_os_family == "RedHat"
+        - ansible_distribution == "OracleLinux"
     - name: "creating directory"
       file:
         state: directory
