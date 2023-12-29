@@ -1,6 +1,7 @@
 # https://virtualtech.tistory.com/554
 ---
 - hosts: oracle # hosts 파일에 등록한 호스트명
+  #become: yes
   tasks:
   - name: install nginx
     yum: 
