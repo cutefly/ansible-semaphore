@@ -1,33 +1,23 @@
 # https://codingpointer.com/ansible/download-shell-scripts-from-remote
 ---
-- name: Create directory on local machine
-  hosts: all
+- hosts: all
+  become: yes
   tasks:
     - name: "creating directory"
       file:
     	  state: directory
     	  path: /tmp/ansible/test_shell
     	  mode: 0750
-
-- name: Download shell scripts from remote machine
-  hosts: all
-  tasks:
     - name: download shell scripts
       synchronize:
     	  mode: pull
     	  src: /tmp/ansible/test_shell/get_host_name.sh
     	  dest: /tmp/ansible/test_shell/get_host_name.sh
-
-- name: Run shell scripts on local machine
-  hosts: all
-  tasks:
     - name: run get_host_name.sh
       shell: ". /tmp/ansible/test_shell/get_host_name.sh"
-
     - name: read file content
       command: "cat /tmp/ansible/test_shell/shell_file"
       register: out
-
     - name: Print the msg
       debug:
     	msg: "{{ out.stdout }}"
