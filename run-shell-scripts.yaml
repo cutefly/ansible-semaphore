@@ -20,4 +20,4 @@
       register: out
     - name: Print the msg
       debug:
-    	msg: "{{ out.stdout }}"
+    	  msg: "{{ out.stdout }}"
