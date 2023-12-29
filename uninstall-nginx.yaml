@@ -1,0 +1,14 @@
+---
+- hosts: ubuntu
+  become: yes
+  tasks:
+    - name: uninstall nginx for ubuntu
+      apt: name=nginx state=absent autoremove=yes
+      when:
+        - ansible_os_family == "Debian"
+        - ansible_distribution == "Ubuntu"
+    - name: uninstall nginx for redhat
+      yum: name=nginx state=absent autoremove=yes
+      when:
+        - ansible_os_family == "RedHat"
+        - ansible_distribution == "CentOS"
