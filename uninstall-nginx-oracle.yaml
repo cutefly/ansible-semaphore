@@ -3,9 +3,5 @@
 - hosts: oracle
   become: yes
   tasks:
-    - name: stop nginx
-      service:
-          name: nginx
-          state: stopped
     - name: uninstall nginx
       yum: name=nginx state=absent autoremove=yes
