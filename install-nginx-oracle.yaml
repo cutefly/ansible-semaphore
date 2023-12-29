@@ -1,0 +1,15 @@
+---
+- hosts: oracle # hosts 파일에 등록한 호스트명
+  tasks:
+  - name: install nginx
+    yum: 
+      name: nginx
+      state: latest
+    become: true
+    become_method: sudo
+  - name: start nginx
+    service:
+      name: nginx
+      state: started
+    become: true
+    become_method: sudo
