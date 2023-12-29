@@ -1,0 +1,10 @@
+# https://virtualtech.tistory.com/554
+---
+- hosts: web
+  tasks:
+    - name: stop nginx
+      service:
+          name: nginx
+          state: stopped
+    - name: uninstall nginx
+      yum: name=nginx state=absent autoremove=yes
