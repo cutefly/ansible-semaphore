@@ -8,3 +8,16 @@
         state: directory
         path: /tmp/ansible/test_shell
         mode: 0750
+    - name: download shell scripts
+      synchronize:
+        mode: pull
+        src: /tmp/ansible/test_shell/get_host_name.sh
+        dest: /tmp/ansible/test_shell/get_host_name.sh
+    - name: run get_host_name.sh
+      shell: ". /tmp/ansible/test_shell/get_host_name.sh"
+    - name: read file content
+      command: "cat /tmp/ansible/test_shell/shell_file"
+      register: out
+    - name: Print the msg
+      debug:
+       msg: "{{ out.stdout }}"
