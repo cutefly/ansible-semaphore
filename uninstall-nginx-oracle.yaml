@@ -1,6 +1,6 @@
 # https://virtualtech.tistory.com/554
 ---
-- hosts: ubuntu
+- hosts: oracle
   become: yes
   tasks:
     - name: stop nginx
