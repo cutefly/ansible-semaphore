@@ -1,0 +1,21 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: install nginx for ubuntu
+      apt: 
+        name=nginx state=latest
+      when:
+        - ansible_os_family == "Debian"
+        - ansible_distribution == "Ubuntu"
+    - name: install nginx for redhat
+      yum: 
+        name: nginx
+        state: latest
+      when:
+        - ansible_os_family == "RedHat"
+        - ansible_distribution == "CentOS"
+    - name: start nginx
+      service:
+        name: nginx
+        state: started
