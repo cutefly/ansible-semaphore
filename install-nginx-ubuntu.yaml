@@ -1,6 +1,7 @@
 # https://sujitpatel.in/article/how-to-install-nginx-using-ansible-playbook/
 ---
 - hosts: ubuntu
+  become: yes
   tasks:
     - name: install nginx
       apt: name=nginx state=latest
