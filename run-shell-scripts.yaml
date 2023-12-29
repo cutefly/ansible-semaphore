@@ -5,6 +5,6 @@
   tasks:
     - name: "creating directory"
       file:
-    	  state: directory
-    	  path: /tmp/ansible/test_shell
-    	  mode: 0750
+        state: directory
+        path: /tmp/ansible/test_shell
+        mode: 0750
