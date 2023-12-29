@@ -1,6 +1,7 @@
 # https://virtualtech.tistory.com/554
 ---
-- hosts: web
+- hosts: ubuntu
+  become: yes
   tasks:
     - name: stop nginx
       service:
