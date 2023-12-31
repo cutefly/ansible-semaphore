@@ -3,28 +3,11 @@
 - hosts: all
   become: yes
   tasks:
-    - name: install rsync for ubuntu
-      apt: 
-        name=rsync state=present
-      when:
-        - ansible_os_family == "Debian"
-        - ansible_distribution == "Ubuntu"
-    - name: install rsync for redhat
-      yum: 
-        name=rsync state=present
-      when:
-        - ansible_os_family == "RedHat"
-        - ansible_distribution == "OracleLinux"
-    - name: "creating directory"
-      file:
-        state: directory
-        path: /tmp/ansible/test_shell
-        mode: 0750
-    - name: download shell scripts
-      synchronize:
-        mode: pull
-        src: /tmp/ansible/test_shell/get_host_name.sh
+    - name: download get_host_name.sh
+      ansible.builtin.get_url:
+        url: https://raw.githubusercontent.com/cutefly/ansible-semaphore/main/scripts/get_host_name.sh
         dest: /tmp/ansible/test_shell/get_host_name.sh
+        mode: '0440'
     - name: run get_host_name.sh
       shell: ". /tmp/ansible/test_shell/get_host_name.sh"
     - name: read file content
