@@ -13,10 +13,10 @@
         url: https://raw.githubusercontent.com/cutefly/ansible-semaphore/main/scripts/get_host_name.sh
         dest: /tmp/ansible/test_shell/get_host_name.sh
         mode: '0440'
-    - name: run get_host_name.sh
+    - name: run shell file
       shell: ". /tmp/ansible/test_shell/get_host_name.sh"
-    - name: get host name
-      shell: "echo $(hostname -f) > /tmp/ansible/test_shell/shell_file"
+#    - name: get host name
+#      shell: "echo $(hostname -f) > /tmp/ansible/test_shell/shell_file"
     - name: read file content
       command: "cat /tmp/ansible/test_shell/shell_file"
       register: out
