@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo $(hostname -f) > shell_file
+echo $(hostname -f) > /tmp/ansible/test_shell/shell_file
