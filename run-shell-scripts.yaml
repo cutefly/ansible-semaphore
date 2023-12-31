@@ -7,7 +7,7 @@
       file:
         state: directory
         path: /tmp/ansible/test_shell
-        mode: 0750
+        mode: 0755
     - name: download get_host_name.sh
       ansible.builtin.get_url:
         url: https://raw.githubusercontent.com/cutefly/ansible-semaphore/main/scripts/get_host_name.sh
